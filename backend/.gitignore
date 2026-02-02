@@ -1,0 +1,28 @@
+# ===== Backend =====
+backend/target/
+backend/.idea/
+backend/*.iml
+backend/.env
+backend/application-local.yaml
+backend/logs/
+backend/*.log
+
+# ===== Frontend =====
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.env
+
+# ===== IDE (global) =====
+.idea/
+.vscode/
+*.swp
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Divers =====
+*.tmp
+*.bak
+*.class

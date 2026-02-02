@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:15
+    container_name: your_car_your_way
+    restart: always
+    environment:
+      POSTGRES_DB: ycyw
+      POSTGRES_USER: ycyw_user
+      POSTGRES_PASSWORD: ycyw_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin4
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "arnaud1720@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  pgdata:
+  pgadmin_data:

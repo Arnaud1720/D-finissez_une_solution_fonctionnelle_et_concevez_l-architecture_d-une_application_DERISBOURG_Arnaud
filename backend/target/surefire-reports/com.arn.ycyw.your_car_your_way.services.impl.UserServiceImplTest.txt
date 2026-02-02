@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.arn.ycyw.your_car_your_way.services.impl.UserServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.402 s -- in com.arn.ycyw.your_car_your_way.services.impl.UserServiceImplTest
