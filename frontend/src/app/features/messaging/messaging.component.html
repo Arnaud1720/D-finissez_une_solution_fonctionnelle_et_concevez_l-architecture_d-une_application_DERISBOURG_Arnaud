@@ -1,0 +1,181 @@
+<div class="messaging-container">
+  <!-- Sidebar: Liste des conversations -->
+  <aside class="conversations-sidebar" [class.hidden-mobile]="currentConversation()">
+    <div class="sidebar-header">
+      <h2>Mes conversations</h2>
+      @if (totalUnreadCount() > 0) {
+        <span class="unread-badge">{{ totalUnreadCount() }}</span>
+      }
+    </div>
+
+    <!-- Actions -->
+    <div class="sidebar-actions">
+      @if (!isEmployee()) {
+        <button class="btn-new-conversation" (click)="toggleNewConversationForm()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Nouvelle conversation
+        </button>
+      }
+      @if (isEmployee()) {
+        <button class="btn-unassigned" (click)="loadUnassigned()">
+          Voir non assignees
+        </button>
+        <button class="btn-my-convs" (click)="loadConversations()">
+          Mes conversations
+        </button>
+      }
+    </div>
+
+    <!-- Formulaire nouvelle conversation -->
+    @if (showNewConversationForm()) {
+      <div class="new-conversation-form">
+        <input
+          type="text"
+          #subjectInput
+          placeholder="Sujet de votre demande..."
+          [value]="newSubject()"
+          (input)="newSubject.set(subjectInput.value)"
+          (keydown.enter)="createConversation()"
+          class="input-subject"
+        />
+        <div class="form-actions">
+          <button class="btn-cancel" (click)="toggleNewConversationForm()">Annuler</button>
+          <button class="btn-create" (click)="createConversation()" [disabled]="!newSubject().trim()">
+            Creer
+          </button>
+        </div>
+      </div>
+    }
+
+    <!-- Liste des conversations -->
+    <div class="conversations-list">
+      @if (loading()) {
+        <div class="loading">Chargement...</div>
+      } @else if (conversations().length === 0) {
+        <div class="empty-state">
+          <p>Aucune conversation</p>
+        </div>
+      } @else {
+        @for (conversation of conversations(); track conversation.id) {
+          <div
+            class="conversation-item"
+            [class.selected]="selectedConversationId() === conversation.id"
+            [class.has-unread]="conversation.unreadCount > 0"
+            (click)="selectConversation(conversation)"
+          >
+            <div class="conversation-header">
+              <span class="conversation-subject">{{ conversation.subject }}</span>
+              @if (conversation.unreadCount > 0) {
+                <span class="conversation-unread">{{ conversation.unreadCount }}</span>
+              }
+            </div>
+            <div class="conversation-meta">
+              <span class="conversation-status" [ngClass]="getStatusClass(conversation.status)">
+                {{ getStatusLabel(conversation.status) }}
+              </span>
+              <span class="conversation-date">
+                {{ conversation.updatedAt | date:'dd/MM/yyyy HH:mm' }}
+              </span>
+            </div>
+            @if (isEmployee() && !conversation.employeeId) {
+              <button class="btn-assign" (click)="assignToMe(conversation.id); $event.stopPropagation()">
+                Prendre en charge
+              </button>
+            }
+          </div>
+        }
+      }
+    </div>
+  </aside>
+
+  <!-- Main: Zone de chat -->
+  <main class="chat-area" [class.hidden-mobile]="!currentConversation()">
+    @if (currentConversation()) {
+      <!-- Header du chat -->
+      <div class="chat-header">
+        <button class="btn-back" (click)="backToList()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        <div class="chat-info">
+          <h3>{{ currentConversation()!.subject }}</h3>
+          <p class="chat-participant">
+            @if (isEmployee()) {
+              Client: {{ currentConversation()!.customerName }}
+            } @else {
+              @if (currentConversation()!.employeeName) {
+                Agent: {{ currentConversation()!.employeeName }}
+              } @else {
+                En attente d'un agent...
+              }
+            }
+          </p>
+        </div>
+        @if (currentConversation()!.status === 'OPEN') {
+          <button class="btn-close-conv" (click)="closeConversation(currentConversation()!.id)">
+            Fermer
+          </button>
+        }
+      </div>
+
+      <!-- Messages -->
+      <div #messagesContainer class="messages-container">
+        @if (messages().length === 0) {
+          <div class="no-messages">
+            <p>Aucun message. Commencez la conversation !</p>
+          </div>
+        } @else {
+          @for (message of messages(); track message.id) {
+            <div class="message" [class.my-message]="isMyMessage(message)" [class.other-message]="!isMyMessage(message)">
+              <div class="message-bubble">
+                <p class="message-content">{{ message.content }}</p>
+                <div class="message-meta">
+                  <span class="message-sender">{{ message.senderName }}</span>
+                  <span class="message-time">{{ message.sentAt | date:'HH:mm' }}</span>
+                </div>
+              </div>
+            </div>
+          }
+        }
+      </div>
+
+      <!-- Input zone -->
+      @if (currentConversation()!.status === 'OPEN') {
+        <div class="message-input-area">
+          <textarea
+            [ngModel]="newMessage()"
+            (ngModelChange)="newMessage.set($event)"
+            (keypress)="onKeyPress($event)"
+            placeholder="Ecrivez votre message..."
+            rows="2"
+            class="message-input"
+          ></textarea>
+          <button
+            class="btn-send"
+            (click)="sendMessage()"
+            [disabled]="!newMessage().trim()"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+            </svg>
+          </button>
+        </div>
+      } @else {
+        <div class="conversation-closed">
+          <p>Cette conversation est fermee.</p>
+        </div>
+      }
+    } @else {
+      <!-- Placeholder quand aucune conversation selectionnee -->
+      <div class="no-conversation-selected">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="icon-large">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        </svg>
+        <p>Selectionnez une conversation ou creez-en une nouvelle</p>
+      </div>
+    }
+  </main>
+</div>

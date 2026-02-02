@@ -1,0 +1,85 @@
+<nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center space-x-2">
+        <span class="text-2xl">🚗</span>
+        <span class="font-bold text-xl text-gray-900">YCYW</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        @if (authService.isAuthenticated()) {
+          <a routerLink="/messages"
+             routerLinkActive="text-primary-600"
+             class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+            Messages
+          </a>
+          <a routerLink="/profile"
+             routerLinkActive="text-primary-600"
+             class="text-gray-600 hover:text-primary-600 font-medium transition-colors">
+            Mon profil
+          </a>
+          <button (click)="logout()" class="btn-outline py-2 px-4 text-sm">
+            Déconnexion
+          </button>
+        } @else {
+          <a routerLink="/auth/login" class="btn-outline py-2 px-4 text-sm">
+            Connexion
+          </a>
+          <a routerLink="/auth/register" class="btn-primary py-2 px-4 text-sm">
+            Inscription
+          </a>
+        }
+      </div>
+
+      <!-- Mobile menu button -->
+      <button (click)="toggleMobileMenu()"
+              class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+        @if (mobileMenuOpen()) {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        } @else {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        }
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    @if (mobileMenuOpen()) {
+      <div class="md:hidden py-4 border-t border-gray-100">
+        <div class="flex flex-col space-y-3">
+          @if (authService.isAuthenticated()) {
+            <a routerLink="/messages"
+               (click)="closeMobileMenu()"
+               class="text-gray-600 hover:text-primary-600 font-medium py-2">
+              Messages
+            </a>
+            <a routerLink="/profile"
+               (click)="closeMobileMenu()"
+               class="text-gray-600 hover:text-primary-600 font-medium py-2">
+              Mon profil
+            </a>
+            <button (click)="logout()" class="btn-outline py-2 text-sm text-left">
+              Déconnexion
+            </button>
+          } @else {
+            <a routerLink="/auth/login"
+               (click)="closeMobileMenu()"
+               class="btn-outline py-2 text-sm text-center">
+              Connexion
+            </a>
+            <a routerLink="/auth/register"
+               (click)="closeMobileMenu()"
+               class="btn-primary py-2 text-sm text-center">
+              Inscription
+            </a>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</nav>

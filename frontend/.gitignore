@@ -1,0 +1,94 @@
+# ===================
+# Node & npm
+# ===================
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# ===================
+# Angular Build
+# ===================
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+
+# ===================
+# IDE & Editors
+# ===================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ / WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+
+# ===================
+# OS Generated
+# ===================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===================
+# Angular specific
+# ===================
+.angular/
+.angular/cache/
+
+# ===================
+# Testing
+# ===================
+/coverage/
+/e2e/reports/
+/junit/
+
+# ===================
+# Environnement
+# ===================
+.env
+.env.local
+.env.*.local
+*.local
+
+# ===================
+# Compilation
+# ===================
+*.js.map
+*.tsbuildinfo
+
+# ===================
+# Misc
+# ===================
+/.sass-cache/
+/connect.lock/
+/libpeerconnection.log
+testem.log
+/typings/
+
+# ===================
+# Logs
+# ===================
+logs/
+*.log
+
+# ===================
+# Optionnel: si tu veux garder package-lock.json
+# Retire cette ligne si tu veux le versionner
+# ===================
+# package-lock.json

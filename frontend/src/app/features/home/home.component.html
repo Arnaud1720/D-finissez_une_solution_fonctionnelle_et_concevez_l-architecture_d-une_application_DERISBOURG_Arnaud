@@ -1,0 +1,338 @@
+<!-- Hero Section -->
+<section
+  class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+>
+  <!-- Animated background circles -->
+  <div
+    class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
+  ></div>
+  <div
+    class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
+    style="animation-delay: 1s"
+  ></div>
+
+  <div
+    class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtNi42MjcgNS4zNzMtMTIgMTItMTJzMTIgNS4zNzMgMTIgMTItNS4zNzMgMTItMTIgMTItMTItNS4zNzMtMTItMTJ6bTAgMjRjMC02LjYyNyA1LjM3My0xMiAxMi0xMnMxMiA1LjM3MyAxMiAxMi01LjM3MyAxMi0xMiAxMi0xMi01LjM3My0xMi0xMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"
+  ></div>
+
+  <div class="container mx-auto px-4 py-24 md:py-36 relative z-10">
+    <div class="max-w-4xl">
+      <div
+        class="inline-block px-4 py-2 bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full mb-6 animate-fade-down animate-duration-700"
+      >
+        <span class="text-blue-300 text-sm font-medium"
+          >🚗 Location de véhicules premium</span
+        >
+      </div>
+      <h1
+        class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-up animate-duration-1000"
+      >
+        Louez votre véhicule
+        <span
+          class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+          >partout en Europe</span
+        >
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed animate-fade-up animate-delay-200 animate-duration-1000"
+      >
+        Trouvez la voiture idéale pour vos déplacements professionnels ou
+        personnels. Des centaines d'agences à votre service dans toute l'Europe.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row gap-4 animate-fade-up animate-delay-500 animate-duration-1000"
+      >
+        <a
+          routerLink="/auth/register"
+          class="inline-flex items-center justify-center text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-1 hover:scale-105"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+            />
+          </svg>
+          Créer un compte
+        </a>
+        <a
+          routerLink="/auth/register"
+          class="inline-flex items-center justify-center text-lg px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-105"
+        >
+          Créer un compte
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
+  ></div>
+</section>
+
+<!-- Features Section -->
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-1.5 bg-blue-50 rounded-full mb-4">
+        <span class="text-blue-600 text-sm font-semibold">NOS AVANTAGES</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        Pourquoi nous choisir ?
+      </h2>
+      <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+        Une expérience de location simplifiée et des services premium
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div
+        class="group relative bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300 hover:-translate-y-2"
+      >
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-blue-500/25"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Réseau européen</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Plus de 500 agences dans 15 pays européens pour vous servir où que
+          vous soyez.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div
+        class="group relative bg-white p-8 rounded-2xl border border-slate-200 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 hover:-translate-y-2"
+      >
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-emerald-500/25"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">
+          Annulation flexible
+        </h3>
+        <p class="text-slate-600 leading-relaxed">
+          Annulez gratuitement jusqu'à 48h avant le départ. Votre flexibilité,
+          notre priorité.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div
+        class="group relative bg-white p-8 rounded-2xl border border-slate-200 hover:border-violet-300 hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300 hover:-translate-y-2"
+      >
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-violet-500/25"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Assistance 24/7</h3>
+        <p class="text-slate-600 leading-relaxed">
+          Une équipe dédiée disponible jour et nuit pour répondre à toutes vos
+          questions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vehicle Categories Section -->
+<section class="py-24 bg-gradient-to-b from-slate-50 to-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-1.5 bg-slate-100 rounded-full mb-4">
+        <span class="text-slate-700 text-sm font-semibold">NOTRE FLOTTE</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        Une flotte pour tous vos besoins
+      </h2>
+      <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+        Du véhicule économique au SUV premium, trouvez le véhicule parfait
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div
+        class="group bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 cursor-pointer hover:-translate-y-1"
+      >
+        <div
+          class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300"
+        >
+          🚗
+        </div>
+        <h4 class="font-bold text-slate-900 mb-1">Économique</h4>
+        <p class="text-sm text-slate-500">Catégorie A</p>
+      </div>
+      <div
+        class="group bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-100/50 transition-all duration-300 cursor-pointer hover:-translate-y-1"
+      >
+        <div
+          class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300"
+        >
+          🚙
+        </div>
+        <h4 class="font-bold text-slate-900 mb-1">Compacte</h4>
+        <p class="text-sm text-slate-500">Catégorie B</p>
+      </div>
+      <div
+        class="group bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300 cursor-pointer hover:-translate-y-1"
+      >
+        <div
+          class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300"
+        >
+          🚘
+        </div>
+        <h4 class="font-bold text-slate-900 mb-1">Berline</h4>
+        <p class="text-sm text-slate-500">Catégorie C</p>
+      </div>
+      <div
+        class="group bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-100/50 transition-all duration-300 cursor-pointer hover:-translate-y-1"
+      >
+        <div
+          class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300"
+        >
+          🚕
+        </div>
+        <h4 class="font-bold text-slate-900 mb-1">SUV</h4>
+        <p class="text-sm text-slate-500">Catégorie D</p>
+      </div>
+      <div
+        class="group bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-100/50 transition-all duration-300 cursor-pointer hover:-translate-y-1"
+      >
+        <div
+          class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300"
+        >
+          🏎️
+        </div>
+        <h4 class="font-bold text-slate-900 mb-1">Premium</h4>
+        <p class="text-sm text-slate-500">Catégorie E</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section
+  class="relative py-24 bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 overflow-hidden"
+>
+  <!-- Animated gradient orbs -->
+  <div
+    class="absolute top-10 right-20 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse"
+  ></div>
+  <div
+    class="absolute bottom-10 left-20 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl animate-pulse"
+    style="animation-delay: 1.5s"
+  ></div>
+
+  <div
+    class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtNi42MjcgNS4zNzMtMTIgMTItMTJzMTIgNS4zNzMgMTIgMTItNS4zNzMgMTItMTIgMTItMTItNS4zNzMtMTItMTJ6bTAgMjRjMC02LjYyNyA1LjM3My0xMiAxMi0xMnMxMiA1LjM3MyAxMiAxMi01LjM3MyAxMi0xMiAxMi0xMi01LjM3My0xMi0xMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"
+  ></div>
+  <div class="container mx-auto px-4 text-center relative z-10">
+    <div
+      class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6 animate-fade-down animate-duration-700"
+    >
+      <span class="text-white text-sm font-medium">🎉 OFFRE SPÉCIALE</span>
+    </div>
+    <h2
+      class="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-up animate-duration-1000"
+    >
+      Prêt à prendre la route ?
+    </h2>
+    <p
+      class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-up animate-delay-200 animate-duration-1000"
+    >
+      Inscrivez-vous gratuitement et bénéficiez de nos meilleures offres
+    </p>
+    <a
+      routerLink="/auth/register"
+      class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 text-lg shadow-2xl shadow-blue-900/30 hover:shadow-3xl hover:-translate-y-1 hover:scale-105 animate-fade-up animate-delay-500 animate-duration-1000"
+    >
+      <svg
+        class="w-5 h-5 mr-2 transition-transform group-hover:translate-x-1"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 7l5 5m0 0l-5 5m5-5H6"
+        />
+      </svg>
+      Créer mon compte gratuitement
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center space-x-3 mb-6 md:mb-0">
+        <div
+          class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center"
+        >
+          <span class="text-2xl">🚗</span>
+        </div>
+        <span
+          class="font-bold text-2xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+          >Your Car Your Way</span
+        >
+      </div>
+      <p class="text-sm text-slate-500">
+        © 2024 Your Car Your Way. Tous droits réservés.
+      </p>
+    </div>
+  </div>
+</footer>
